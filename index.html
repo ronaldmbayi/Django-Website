@@ -1,0 +1,67 @@
+
+{%extends "create_account/layout.html"%}
+{%load static%}
+{%block body%}
+    <div class="main">
+        <div class="navbar">
+            <div class="logo-content">
+                <div class="logo"><img src="{%static 'create_account/friendsInTechnology.png' %}" class="img" alt=""></div>
+                <div class="logo-name">
+                    <h2>FriendsInTech</h2>
+                </div>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li class="service"><a href="#">Service</a>
+                        <div class="drop-menu">
+                            <ul>
+                                <li><a href="{% url 'signup'%}">Arduino</a></li>
+                                <li><a href="{% url 'signup'%}">Python</a></li>
+                                <li><a href="{% url 'signup'%}">PLC</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="#">Download</a></li>
+                    <li><a href="#">Contact</a></li>
+
+                </ul>
+            </div>
+            <div class="search">
+                <input type="search" class="srch">
+                <a href=""><button class="btn">Search</button></a>
+            </div>
+        </div>
+        <div class="content">
+            <h1>Engineering & <br><span>Web Design</span><br>Tutorials</h1>
+            <p class="par">
+                We offer Engineering tutorials specifically Electrical and <br>web design with Html CSS JavaScript and
+                Python
+            </p>
+            <div class="form">
+                <form action="{% url 'index' %}" method="post">
+                {%csrf_token%}
+                <h2>Login Here</h2>
+                <br>
+                <input type="text" id="username" name="username" placeholder="username">
+                <input type="email" id="email" name="email" placeholder="Enter Email">
+                <input type="password" id="password" name="password" placeholder=" Enter password">
+                <button type="submit" class="btrn"><a href="#">Login</a></button>
+                
+                <p class="link">Don't have Account?<br>
+                    <a href="{% url 'signup'%}">Sign up</a> here
+                </p><br>
+                <div class="icon">
+                    <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                    <a href="https://www.instagram.com/ronald_mbayi/"><ion-icon name="logo-instagram"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-tiktok"></ion-icon></a>
+                </div>
+                </form>
+            </div>    
+        </div>
+    </div>
+    <script src="https://unpkg.com/ionicons@latest/dist/ionicons.js"></script>
+{%endblock%}
